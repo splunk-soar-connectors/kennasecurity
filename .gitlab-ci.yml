@@ -12,11 +12,6 @@ test:
   script: make test
   after_script:
     - make upload
-  artifacts:
-    name: Test Results
-    expire_in: 6 mos
-    when: always
-    paths: [app_release/results]
 
 build:
   stage: Test And Build App
