@@ -13,7 +13,7 @@
     "app_version": "2.0.0",
     "utctime_updated": "2022-01-07T20:35:58.000000Z",
     "package_name": "phantom_kennasecurity",
-    "main_module": "kennasecurity_connector.pyc",
+    "main_module": "kennasecurity_connector.py",
     "min_phantom_version": "5.1.0",
     "python_version": "2.7",
     "app_wizard_version": "1.0.0",
