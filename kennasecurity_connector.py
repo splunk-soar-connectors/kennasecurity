@@ -538,7 +538,7 @@ class KennaSecurityConnector(BaseConnector):
         device_id = param.get(KENNA_JSON_DEVICE_ID, "")
         ip = param.get(KENNA_JSON_IP, "")
         hostname = param.get(KENNA_JSON_HOSTNAME, "")
-        active = param[KENNA_JSON_ACTIVE]
+        active = param.get(KENNA_JSON_ACTIVE)
         notes = param.get(KENNA_JSON_NOTES, "")
         owner = param.get(KENNA_JSON_OWNER, "")
         tags = param.get(KENNA_JSON_TAGS, "")
@@ -763,9 +763,9 @@ class KennaSecurityConnector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         vulnerability_id = param[KENNA_JSON_VULNERABILITY_ID]
-        vulnerability_status = param[KENNA_JSON_VULNERABILITY_STATUS]
+        vulnerability_status = param.get(KENNA_JSON_VULNERABILITY_STATUS)
         notes = param.get(KENNA_JSON_NOTES, "")
-        priority = param[KENNA_JSON_PRIORITY]
+        priority = param.get(KENNA_JSON_PRIORITY)
         due_date = param.get(KENNA_JSON_DUE_DATE)
 
         # Check for valid ID
@@ -915,7 +915,7 @@ class KennaSecurityConnector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         search = param.get(KENNA_JSON_SEARCH, "")
-        vulnerability_status = param[KENNA_JSON_VULNERABILITY_STATUS]
+        vulnerability_status = param.get(KENNA_JSON_VULNERABILITY_STATUS)
         connector_names = param.get(KENNA_JSON_CONNECTOR, "")
 
         params = {}
