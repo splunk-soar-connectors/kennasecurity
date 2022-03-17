@@ -1,6 +1,6 @@
 # File: kennasecurity_connector.py
 #
-# Copyright (c) 2018-2019 Splunk Inc.
+# Copyright (c) 2018-2022 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,21 +12,21 @@
 # the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
+import ipaddress
+import json
 import re
 import string
-import requests
-import json
-import ipaddress
-
 from datetime import datetime
-from bs4 import BeautifulSoup
-from kennasecurity_consts import *
 
 # Phantom App imports
 import phantom.app as phantom
-from phantom.base_connector import BaseConnector
+import requests
+from bs4 import BeautifulSoup
 from phantom.action_result import ActionResult
+from phantom.base_connector import BaseConnector
 from phantom.vault import Vault
+
+from kennasecurity_consts import *
 
 
 class RetVal(tuple):
@@ -1052,8 +1052,9 @@ class KennaSecurityConnector(BaseConnector):
 
 if __name__ == '__main__':
 
-    import pudb
     import argparse
+
+    import pudb
 
     pudb.set_trace()
 
@@ -1077,7 +1078,7 @@ if __name__ == '__main__':
 
     if username and password:
         try:
-            print "Accessing the Login page"
+            print("Accessing the Login page")
             r = requests.get(BaseConnector._get_phantom_base_url() + "login", verify=False)
             csrftoken = r.cookies['csrftoken']
 
@@ -1090,11 +1091,11 @@ if __name__ == '__main__':
             headers['Cookie'] = 'csrftoken={}'.format(csrftoken)
             headers['Referer'] = BaseConnector._get_phantom_base_url() + 'login'
 
-            print "Logging into Platform to get the session id"
+            print("Logging into Platform to get the session id")
             r2 = requests.post(BaseConnector._get_phantom_base_url() + "login", verify=False, data=data, headers=headers)
             session_id = r2.cookies['sessionid']
         except Exception as e:
-            print "Unable to get session id from the platfrom. Error: {}".format(str(e))
+            print("Unable to get session id from the platfrom. Error: {}".format(str(e)))
             exit(1)
 
     with open(args.input_test_json) as f:
@@ -1110,6 +1111,6 @@ if __name__ == '__main__':
             connector._set_csrf_info(csrftoken, headers['Referer'])
 
         ret_val = connector._handle_action(json.dumps(in_json), None)
-        print (json.dumps(json.loads(ret_val), indent=4))
+        print(json.dumps(json.loads(ret_val), indent=4))
 
     exit(0)

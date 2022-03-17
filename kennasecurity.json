@@ -8,13 +8,14 @@
     "logo_dark": "logo_kennasecurity_dark.svg",
     "product_name": "Kenna Security",
     "product_version_regex": ".*",
-    "publisher": "Phantom",
-    "license": "Copyright (c) 2018-2019 Splunk Inc.",
-    "app_version": "1.0.7",
+    "publisher": "Splunk Community",
+    "license": "Copyright (c) 2018-2022 Splunk Inc.",
+    "app_version": "2.0.0",
     "utctime_updated": "2022-01-07T20:35:58.000000Z",
     "package_name": "phantom_kennasecurity",
     "main_module": "kennasecurity_connector.pyc",
-    "min_phantom_version": "4.0.1068",
+    "min_phantom_version": "5.1.0",
+    "python_version": "2.7",
     "app_wizard_version": "1.0.0",
     "configuration": {
         "risk_token": {
@@ -46,8 +47,6 @@
                 "filter_type": {
                     "description": "Type of filter",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "value_list": [
                         "IP",
                         "Hostname",
@@ -58,7 +57,6 @@
                 "filter": {
                     "description": "Filter for vulnerability",
                     "data_type": "string",
-                    "required": false,
                     "primary": true,
                     "contains": [
                         "ip",
@@ -70,7 +68,6 @@
                 "vulnerability_id": {
                     "description": "ID of the vulnerability for patches",
                     "data_type": "numeric",
-                    "required": false,
                     "primary": true,
                     "contains": [
                         "kenna vulnerability id"
@@ -169,17 +166,11 @@
                 },
                 {
                     "data_path": "action_result.data.*.category",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.consequence",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.cves",
@@ -218,10 +209,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.reference_links",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.scanner_ids",
@@ -254,19 +242,13 @@
                 {
                     "data_path": "action_result.data.*.url",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "url"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.vendor",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.vuln_count",
@@ -294,10 +276,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.vulnerabilities.*.service_ticket_status",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.summary.total_patches",
@@ -345,7 +324,6 @@
                 "device_id": {
                     "description": "ID of the device",
                     "data_type": "numeric",
-                    "required": false,
                     "primary": true,
                     "contains": [
                         "kenna device id"
@@ -355,7 +333,6 @@
                 "ip": {
                     "description": "IP of the device",
                     "data_type": "string",
-                    "required": false,
                     "primary": true,
                     "contains": [
                         "ip"
@@ -365,7 +342,6 @@
                 "hostname": {
                     "description": "Host name of the device",
                     "data_type": "string",
-                    "required": false,
                     "primary": true,
                     "contains": [
                         "host name"
@@ -375,8 +351,6 @@
                 "active": {
                     "description": "Status of the device (Default: No action)",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "value_list": [
                         "No action",
                         "True",
@@ -388,25 +362,20 @@
                 "notes": {
                     "description": "Notes for the device",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "order": 4
                 },
                 "owner": {
                     "description": "Owner of the device",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "contains": [
                         "user name"
                     ],
-                    "order": 5
+                    "order": 5,
+                    "primary": true
                 },
                 "tags": {
                     "description": "Tags on the device",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "allow_list": true,
                     "order": 6
                 }
@@ -545,8 +514,6 @@
                 "search": {
                     "description": "Search string",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "order": 0
                 }
             },
@@ -568,10 +535,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.application",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.created_at",
@@ -582,10 +546,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.database",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.domains.vulnerabilities",
@@ -599,24 +560,15 @@
                 },
                 {
                     "data_path": "action_result.data.*.ec2",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.external_id",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.file",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "file name"
                     ]
@@ -624,9 +576,6 @@
                 {
                     "data_path": "action_result.data.*.fqdn",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "domain"
                     ]
@@ -664,19 +613,13 @@
                 {
                     "data_path": "action_result.data.*.ipv6",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "ip"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.last_booted_at",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.last_seen_time",
@@ -711,24 +654,15 @@
                 },
                 {
                     "data_path": "action_result.data.*.netbios",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.network_ports.*.extra_info",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.network_ports.*.hostname",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "host name"
                     ]
@@ -749,10 +683,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.network_ports.*.ostype",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.network_ports.*.port_number",
@@ -787,17 +718,11 @@
                 },
                 {
                     "data_path": "action_result.data.*.network_ports.*.version",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.notes",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.operating_system",
@@ -809,9 +734,6 @@
                 {
                     "data_path": "action_result.data.*.owner",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "user name"
                     ]
@@ -857,9 +779,6 @@
                 {
                     "data_path": "action_result.data.*.url",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "url"
                     ]
@@ -1049,9 +968,6 @@
                 {
                     "data_path": "action_result.data.*.host",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "host name"
                     ],
@@ -1147,8 +1063,6 @@
                 "vulnerability_status": {
                     "description": "Status of the vulnerability (Default: Open)",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "value_list": [
                         "No action",
                         "Open",
@@ -1162,15 +1076,11 @@
                 "notes": {
                     "description": "Notes for vulnerability",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "order": 2
                 },
                 "priority": {
                     "description": "Priority flag for vulnerability (Default: No action)",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "value_list": [
                         "No action",
                         "True",
@@ -1182,8 +1092,6 @@
                 "due_date": {
                     "description": "Due date for vulnerability (YYYY-MM-DD or valid iso8601 format)",
                     "data_type": "string",
-                    "required": false,
-                    "primary": false,
                     "order": 4
                 }
             },
@@ -1298,7 +1206,6 @@
                     "description": "Type of filter (Default: Hostname)",
                     "data_type": "string",
                     "required": true,
-                    "primary": false,
                     "value_list": [
                         "Hostname",
                         "IP",
@@ -1428,10 +1335,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.custom_fields",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.cve_description",
@@ -1456,10 +1360,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.description",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.domains.asset",
@@ -1534,10 +1435,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.notes",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.patch",
@@ -1572,10 +1470,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.priority",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.risk_meter_score",
@@ -1602,19 +1497,13 @@
                 {
                     "data_path": "action_result.data.*.scanner_vulnerabilities.*.port",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "port"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.service_ticket",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.severity",
@@ -1625,10 +1514,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.solution",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.status",
@@ -1667,10 +1553,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.wasc_id",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.summary.total_vulnerabilities",
@@ -1718,13 +1601,11 @@
                 "search": {
                     "description": "Search string",
                     "data_type": "string",
-                    "required": false,
                     "order": 0
                 },
                 "vulnerability_status": {
                     "description": "Status of the vulnerability (Default: Open)",
                     "data_type": "string",
-                    "required": false,
                     "value_list": [
                         "All",
                         "Open",
@@ -1738,7 +1619,6 @@
                 "connector": {
                     "description": "Connector name",
                     "data_type": "string",
-                    "required": false,
                     "primary": true,
                     "contains": [
                         "kenna connector name"
@@ -1859,10 +1739,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.custom_fields",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.cve_description",
@@ -1887,10 +1764,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.description",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.domains.asset",
@@ -1965,10 +1839,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.notes",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.patch",
@@ -2013,10 +1884,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.priority",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.risk_meter_score",
@@ -2043,19 +1911,13 @@
                 {
                     "data_path": "action_result.data.*.scanner_vulnerabilities.*.port",
                     "data_type": "string",
-                    "example_values": [
-                        ""
-                    ],
                     "contains": [
                         "port"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.service_ticket",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.severity",
@@ -2066,10 +1928,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.solution",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.status",
@@ -2108,10 +1967,7 @@
                 },
                 {
                     "data_path": "action_result.data.*.wasc_id",
-                    "data_type": "string",
-                    "example_values": [
-                        ""
-                    ]
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.summary.total_vulnerabilities",
