@@ -1,12 +1,12 @@
 [comment]: # "Auto-generated SOAR connector documentation"
 # Kenna Security
 
-Publisher: Phantom  
-Connector Version: 1\.0\.6  
+Publisher: Splunk Community  
+Connector Version: 2\.0\.0  
 Product Vendor: Kenna Security  
 Product Name: Kenna Security  
 Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 4\.0\.1068  
+Minimum Product Version: 5\.1\.0  
 
 This app integrates with Kenna Security to implement various investigative actions
 
